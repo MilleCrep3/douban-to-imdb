@@ -50,7 +50,7 @@ def get_info(url):
         for item in movie_items:
             # meta data
             douban_link = item.a['href']
-            title = item.find("li", {"class": "title"}).em.text
+            # title = item.find("li", {"class": "title"}).em.text
 
             rating = item.find(
                 "span", {"class": "date"}).find_previous_siblings()
@@ -74,7 +74,7 @@ def get_info(url):
                 IS_OVER = True
                 break
 
-            info.append([title, rating, imdb])
+            info.append([douban_link, rating, imdb])
     else:
         return None
 
